@@ -1,0 +1,12 @@
+services:
+
+  mysql:
+    image: mysql:8
+    container_name: aqa-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: pass
