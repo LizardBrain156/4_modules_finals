@@ -13,19 +13,22 @@ def get_connection():
     )
 
 
+import time
+
+
 def get_payment_status():
     connection = get_connection()
 
     status = None
 
-    for _ in range(10):  # ждём до 10 секунд появления записи
+    for _ in range(15):
         with connection.cursor() as cursor:
             cursor.execute(
                 "SELECT status FROM payment_entity ORDER BY id DESC LIMIT 1"
             )
             result = cursor.fetchone()
 
-            if result:
+            if result and result.get("status"):
                 status = result["status"]
                 break
 

@@ -7,7 +7,6 @@ from selenium.webdriver.common.keys import Keys
 class PaymentPage:
 
     buy_button = (By.XPATH, "//span[text()='Купить']/..")
-    buy_in_credit_button = (By.XPATH, "//span[text()='Купить в кредит']/..")
 
     card_number = (By.XPATH, "//span[text()='Номер карты']/..//input")
     month = (By.XPATH, "//span[text()='Месяц']/..//input")
@@ -53,9 +52,6 @@ class PaymentPage:
 
     def open_payment(self):
         self.driver.find_element(*self.buy_button).click()
-
-    def open_credit(self):
-        self.driver.find_element(*self.buy_in_credit_button).click()
 
     def wait_form(self):
         self.wait.until(

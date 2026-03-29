@@ -120,6 +120,10 @@ def test_past_year(browser):
     with allure.step("Проверить ошибку года"):
         page.invalid_year()
 
+    with allure.step("Проверить, что запись в БД не создана"):
+        count = get_payment_count()
+        assert count == 0
+
 
 @allure.feature("Валидация формы")
 @allure.story("Имя содержит цифры")
@@ -145,6 +149,10 @@ def test_name_numbers(browser):
     with allure.step("Проверить ошибку имени"):
         page.invalid_name()
 
+    with allure.step("Проверить, что запись в БД не создана"):
+        count = get_payment_count()
+        assert count == 0
+
 
 @allure.feature("Валидация формы")
 @allure.story("Неверный CVC")
@@ -169,3 +177,7 @@ def test_invalid_cvc(browser):
 
     with allure.step("Проверить ошибку CVC"):
         page.invalid_cvc()
+
+    with allure.step("Проверить, что запись в БД не создана"):
+        count = get_payment_count()
+        assert count == 0
