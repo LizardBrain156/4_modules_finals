@@ -13,9 +13,6 @@ def get_connection():
     )
 
 
-import time
-
-
 def get_payment_status():
     connection = get_connection()
 

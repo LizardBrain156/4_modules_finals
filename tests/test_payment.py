@@ -99,6 +99,8 @@ def test_00_month(browser):
 @allure.feature("Валидация формы")
 @allure.story("Прошедший год")
 def test_past_year(browser):
+    clear_database()
+
     page = PaymentPage(browser)
 
     with allure.step("Открыть форму оплаты"):
@@ -128,6 +130,8 @@ def test_past_year(browser):
 @allure.feature("Валидация формы")
 @allure.story("Имя содержит цифры")
 def test_name_numbers(browser):
+    clear_database()
+
     page = PaymentPage(browser)
 
     with allure.step("Открыть форму оплаты"):
@@ -157,6 +161,8 @@ def test_name_numbers(browser):
 @allure.feature("Валидация формы")
 @allure.story("Неверный CVC")
 def test_invalid_cvc(browser):
+    clear_database()
+
     page = PaymentPage(browser)
 
     with allure.step("Открыть форму оплаты"):
